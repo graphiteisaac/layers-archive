@@ -1,0 +1,262 @@
+<script src="https://s3.amazonaws.com/files.enjin.com/1058064/assets/EnjinApi.js"></script>
+<div id="layers">
+    <div class="top-nav">
+        <div class="inner-cont">
+            <div class="left noshow">
+                <div class="logo">LAYERS<b>MC</b></div>
+                <ul class="nav">
+                    <a href="/home"><li>Home</li></a>
+                    <a href="/forum"><li>Forums</li></a>
+                    <a href="/shop"><li>Store</li></a>
+                    <a href="/play"><li>Play</li></a>
+                    <a href="/support"><li>Support</li></a>
+                    <a href="/staff"><li>Staff</li></a>
+                    <a href="/vote"><li>Vote</li></a>
+                </ul>
+            </div>
+            <div class="right user">
+                <div class="wrap">
+                    <div class="username">Guest <i class="fa fa-angle-down"></i></div>
+                    <div class="avatar"></div>
+                    <div class="dropbox">
+                        <ul>
+                            <a href="/login"><li><i class="fa fa-sign-in"></i> Login</li></a>
+                            <a href="/login/do/register"><li><i class="fa fa-star"></i> Register</li></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mid">
+        <div class="inner-cont">
+            <div class="logo"><img src="http://puu.sh/oT8KF/42321cd72a.png" /></div>
+            <div class="status">
+                <div class="text">Join <span>0</span> other players with
+                    <div class="ip" data-clipboard-text="play.layersmc.com">play.layersmc.com</div>
+                    <small class="tooltip">
+                        <div class="default">CLICK TO COPY</div>
+                        <div class="copied" style="display: none;">COPIED</div>
+                    </small></div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-cont">
+        <div class="bottom-nav">
+            <ul>
+                <a href="/home"><li><i class="fa fa-home"></i> Home</li></a>
+                <a href="/forum"><li><i class="fa fa-book"></i> Forums</li></a>
+                <a href="/shop"><li><i class="fa fa-shopping-cart"></i> Store</li></a>
+                <a href="/play"><li><i class="fa fa-gamepad"></i> Play</li></a>
+                <a href="/support"><li><i class="fa fa-question-circle"></i> Support</li></a>
+                <a href="/staff"><li><i class="fa fa-users"></i> Staff</li></a>
+                <a href="/vote"><li><i class="fa fa-trophy"></i> Vote</li></a>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="cFooter">
+    <div class="top">
+        <div class="inner-cont">
+            <div class="left">Layers</div>
+            <div class="right">0 playing</div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="inner-cont">
+            <div class="col">
+                <div class="title">information</div>
+                <div class="content">LayersMC is a PVP based network featuring KitPVP and Factions. We have global communication within the network so everyone can feel connected. We are currently actively looking for staff.<br /><br />
+                    <a href="http://www.enjin.com/blog/m/32021/article/3766641"><img src="http://puu.sh/nLgc5/7d54cc79e9.png" /></a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="title"></div>
+                <div class="content">
+                    <div class="logo"><img src="http://puu.sh/oT8KF/42321cd72a.png" /></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="title">navigation</div>
+                <div class="content">
+                    <ul>
+                        <a href="#top"><li>Back to Top</li></a>
+                        <a href="/home"><li>Homepage</li></a>
+                        <a href="/forums"><li>Forums</li></a>
+                        <a href="/games"><li>Gamemodes</li></a>
+                        <a href="/support"><li>Support</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="inner-cont">&copy; Layers Network, 2015-2017. Do not use any part of this website without direct permission. <a href="http://graphitecreative.xyz">created by isaac</a></div>
+    </div>
+    <div class="snackbar">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</div>
+<script src="https://s3.amazonaws.com/files.enjin.com/1058064/assets/graphite.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+<script>
+
+function timeConverter(type, UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var ampm;
+    if (hour >= 12) {
+        hour = hour - 12;
+        ampm = "PM";
+    } else {
+        ampm = "AM";
+    }
+    var min = a.getMinutes();
+    if (min < 10) {
+        min = '0' + min;
+    }
+    var sec = a.getSeconds();
+    var ntime = hour + ':' + min + ' ' + ampm;
+    var dtime = month + ' ' + date + ', ' + year;
+    if (type == "d") {
+        return dtime;
+    }
+    if (type == "h") {
+        return ntime;
+    }
+  
+}
+
+    EnjinAPIHelper.init({
+            api_key: "06980d0f89b2dcb2f05e3feecf1088e2660f2b5bda449912"
+        })
+        
+        $(function(){
+            ping('server.layersmc.com', '#layers .status span', '');
+            ping('server.layersmc.com', '#cFooter .top .right', ' playing');
+        });
+        
+        var apiUser = EnjinAPIHelper.user.getCurrent();
+        //var apiUser2 = EnjinAPIHelper.user.get();
+        var sjkdhfksdjfhsdkjfhsdkjfhsdkfjhskdjfhsdfasd= "1058";
+        var sjkdhfksdjfhsdkjfhsdkjfhsdkfjhskdjfhsdfas = "064";
+        var sjkdhfksdjfhsdkjfhsdkjfhsdkfjhskdjfhsdf = sjkdhfksdjfhsdkjfhsdkjfhsdkfjhskdjfhsdfasd + sjkdhfksdjfhsdkjfhsdkjfhsdkfjhskdjfhsdfas;
+        
+        if (apiUser.logged_in == 'false') {
+            $('.warning').show().prependTo('body');
+            $('.body-wrap-2').remove();
+        }
+        $(function() {
+            $('.m_forum.viewthread .profile .vote-level').hover(
+                function() {
+                    $(this).find('.element_progressbar').stop().slideDown(300);
+                }, function() {
+                    $(this).find('.element_progressbar').stop().slideUp(300);
+                }
+            );
+        });
+        
+        $(function(){
+            
+            $('.input-text input, .input-textarea textarea').focusin(function() {
+                $(this).parents('.input-text, .input-textarea').addClass('focus');
+            });
+            $('.input-text input, .input-textarea textarea').focusout(function() {
+                $(this).parents('.input-text, .input-textarea').removeClass('focus');
+            });
+            
+            $('.loginPopup').prependTo('body');
+            
+            var clipboard = new Clipboard('#layers .status .ip');
+            clipboard.on("success", function() { 
+                $('#layers .status .tooltip .default').fadeOut(140).delay(3000).fadeIn(140);
+                $('#layers .status .tooltip .copied').fadeIn(140).delay(3000).fadeOut(140);
+            });
+            
+            var sc = $('#layers .top-nav .right.user');
+                fAvatar = 'url(' + apiUser.avatar_large + ')';
+            
+            $(sc).find('.username').text(apiUser.username);
+            $(sc).find('.wrap').prepend('<a href="/profile/' + apiUser.user_id + '" class="uname"></a>');
+            $(sc).find('.uname').prepend($('#layers .top-nav .right.user .username'));
+            $(sc).find('.avatar').css('background-image', fAvatar);
+            
+            var dropbox = $('#layers .top-nav .right.user ul');
+            
+            if (apiUser.logged_in == true) {
+                        
+                $(dropbox).empty();
+                
+                if (apiUser.registered == false && apiUser.logged_in == true) {
+                    $(dropbox).append('<a href="#"><li onclick="Enjin_Core.joinWebsiteRegular(event);return false;" rel="nofollow"><i class="fa fa-sign-in"></i> Join site</li></a>');
+                }
+                
+                $(dropbox).append('<a href="/profile/' + apiUser.user_id + '"><li><i class="fa fa-user"></i> Profile</li></a>');
+                $(dropbox).append('<a href="/dashboard"><li><i class="fa fa-dashboard"></i> Dashboard</li></a>');
+                $(dropbox).append('<a href="/dashboard/account"><li><i class="fa fa-cog"></i> Settings</li></a>');
+                $(dropbox).append('<a href="/logout"><li><i class="fa fa-sign-out"></i> Logout</li></a>');
+                
+                $('#layers .top-nav .right').prepend('<div class="notifications"><div class="not n">0</div><div class="not m">0</div><div class="not a">0</div></div>');
+                $('.m_user .status').slideDown(200).css('display', 'flex');
+                setInterval(function(){
+                    var notificationText = $('body > .user_tray .button.notifications .button_total').text();
+                    var messagesText = $('body > .user_tray .button.messages .button_total').text();
+                    var applicationsText = $('body > .user_tray .button.applications .button_total').text();
+                    $('#layers .top-nav .right .not.n').text(notificationText);
+                    $('#layers .top-nav .right .not.m').text(messagesText);
+                    $('#layers .top-nav .right .not.a').text(applicationsText);
+                }, 3000);
+                
+                if (apiUser.registered == 'owner' || apiUser.registered == 'admin') {
+                    $('#layers .top-nav .right').append('<li class="a"><i class="fa fa-cog"></i></li>');
+            
+                    $('#layers .top-nav .right .a').append('<div class="dropbox"><ul></ul></div>');
+                    $('#layers .top-nav .right .a ul').append('<a href="/admin/users"><li>Users</li></a><a href="/admin/modules"><li>Modules</li></a><a href="/admin/layout"><li>Pages</li></a><a href="/admin/users/tagsauto"><li>Automations</li></a><a href="/admin/games"><li>Games</li></a><a href="/admin/voice"><li>Voice</li></a><a href="/admin/themelayout"><li>Themes</li></a><a href="/admin/files"><li>Files</li></a><a href="/admin/users/adminlogs"><li>Logs</li></a><a href="/admin/settings"><li>Settings</li></a>');
+                }
+            }
+            
+            // News
+            $('.m_news .article .heading').each(function() {
+                console.log('News Article');
+                var article_id = $(this).find('.title a').attr('href').split('/article/')[1].split('/page')[0];
+                var news = EnjinAPIHelper.custom.custom('News.getArticle', {
+                    api_key: "06980d0f89b2dcb2f05e3feecf1088e2660f2b5bda449912",
+                    page: 1,
+                    items: 1,
+                    preset_id: "33494656",
+                    article_id: article_id
+                });
+                console.log(article_id);
+                console.log(news);
+                var articleTime = timeConverter('h', news.article.timestamp);
+                var articleDate = timeConverter('d', news.article.timestamp);
+                $(this).prepend('<div class="top"></div>');
+                $('.m_news .article .heading .element_avatar').remove();
+                var date = $(this).find('.date').html();
+                $(this).find('.title').prependTo($(this).children('.top'));
+                $(this).find('.top').append('<div class="date">' + articleDate + '</div>');
+                var infoHTML = $(this).find('.info').html().split(' posted ')[0];
+                var comments = $(this).parents('.article').find('.article-footer').text().trim().split(' comments')[0];
+                if (comments == 1) {
+                    comments = comments + " comment";
+                } else {
+                    comments = comments + " comments";
+                }
+                $(this).find('.info').html('<div class="left">Posted by' + infoHTML + ' at ' + articleTime + '</div><div class="comments"><i class="fa fa-comments"></i> ' + comments + '</div>');
+            });
+            
+        });
+        
+        if (Enjin_Core.site_id != sjkdhfksdjfhsdkjfhsdkjfhsdkfjhskdjfhsdf) {
+            $('.m_html').remove();
+            $('body').prepend('<div style="background: red; color: white; text-align: center; font-size: 42px; padding: 60px 0;">Don\'t steal my design, idiot.</div>');
+        }
+        
+        // News
+        
+</script>
